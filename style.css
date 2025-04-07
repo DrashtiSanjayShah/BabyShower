@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    background-color: #ffe4ec;
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    color: #4b004b;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .main-container {
+    width: calc(100vw - 45rem);
+    height: calc(100vh - 5rem);
+    margin: 0 20rem 1rem 20rem;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(to bottom right, #ffd6e8, #fff0f5);
+    border: 3px dashed #ff69b4;
+    gap: 2rem;
+    overflow: hidden;
+    box-shadow: 0 0 20px #ffaad4;
+  }
+  
+  .top-section {
+    display: flex;
+    flex: 1;
+    gap: 2rem;
+    min-height: 0;
+  }
+  
+  .left-panel {
+    width: 20%;
+    background-color: #ffe0f0;
+    border-right: 2px dashed #ffb6c1;
+  }
+  
+  .left-panel a {
+    display: block;
+   
+  }
+  
+  .left-panel img.left-icon {
+    width: 9rem;
+    height: 16rem;
+    object-fit: contain;
+    transition: transform 0.1s ease;
+   margin-left: 0rem;
+   margin-bottom: -6rem;
+   margin-top: -3rem;
+  }
+  
+  .left-panel img.left-icon:hover {
+    transform: scale(.5);
+    cursor: pointer;
+  }
+
+#games{
+    margin-top: -3rem;
+}
+
+  #photos, #invitation {
+   width: 12rem;
+   height: 16rem;
+   margin-left: -1rem;
+   padding-top: 3rem;
+  }
+
+  .right-panel {
+    width: 70%;
+    /* background-color: #fff0fa; */
+    padding: 1rem;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+.main-image{
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+  .left-panel,
+  .right-panel {
+    margin-top: 1.5rem; 
+  }
+
+  .bottom-section {
+    height: 15%;
+    background-color: #fddde6;
+    text-align: center;
+    line-height: 100%;
+    font-weight: bold;
+    border-top: 2px dashed #ffb6c1;
+    padding: 1rem;
+  }
+  
