@@ -1,101 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Retro Barbie Vibes</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="main-container">
-      <div class="top-section">
-        <div class="left-panel">
-          <a href="page1.html"
-            ><img
-              src="images/about.png"
-              alt="Page 1"
-              class="left-icon"
-              id="about"
-          /></a>
-          <a href="games.html"
-            ><img
-              src="images/games.png"
-              alt="Page 2"
-              class="left-icon"
-              id="games"
-          /></a>
-          <a href="page3.html"
-            ><img
-              src="images/invite.png"
-              alt="Page 3"
-              class="left-icon"
-              id="invitation"
-          /></a>
-          <a href="page4.html"
-            ><img
-              src="images/photos.png"
-              alt="Page 4"
-              class="left-icon"
-              id="photos"
-          /></a>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Retro Barbie Vibes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="main-container">
+    <div class="top-section">
+      <div class="left-panel">
+        <a href="index.html"><img src="images/about.png" alt="Page 1" class="left-icon" id="about"/></a>
+        <a href="games.html"><img src="images/games.png" alt="Page 2" class="left-icon" id="games"/></a>
+        <a href="page3.html"><img src="images/invite.png" alt="Page 3" class="left-icon" id="invitation"/></a>
+        <a href="page4.html"><img src="images/photos.png" alt="Page 4" class="left-icon" id="photos"/></a>
+      </div>
+
+      <div class="right-panel">
+        <div class="quiz-container" id="game">
+          <div class="emoji-question" id="question"></div>
+          <input type="text" id="answerInput" placeholder="Type your answer..." />
+          <button onclick="checkAnswer()">Submit</button>
+          <div class="feedback" id="feedback"></div>
         </div>
-        <div class="right-panel">
-          <div class="quiz-container">
-            <div class="emoji-question" id="question"></div>
-            <input
-              type="text"
-              id="answerInput"
-              placeholder="Type your answer..."
-            />
-            <button onclick="checkAnswer()">Submit</button>
-            <div class="result" id="result"></div>
-            <div class="result" id="score"></div>
-          </div>
+
+        <div id="resultBox" style="display: none;">
+          <h3>Your Score: <span id="final-score"></span>/5</h3>
+          <button onclick="restartGame()">Try Again</button>
+          <button onclick="goHome()">→</button>
         </div>
       </div>
-      <div class="bottom-section">Bottom Section</div>
     </div>
-    <script>
-      const quiz = [
-        { emoji: "🍼👶", answer: "baby bottle" },
-        { emoji: "👶🛁", answer: "baby shower" },
-        { emoji: "👣👣", answer: "baby steps" },
-        { emoji: "👶📸", answer: "baby photo" },
-        { emoji: "💤👶", answer: "sleeping baby" },
-        { emoji: "👶🍎🥕🍌", answer: "baby food" },
-      ];
 
-      let current = 0;
-      let score = 0;
+    <div class="bottom-section">Bottom Section</div>
+  </div>
 
-      const questionEl = document.getElementById("question");
-      const answerInput = document.getElementById("answerInput");
-      const resultEl = document.getElementById("result");
-      const scoreEl = document.getElementById("score");
+  <script>
+    const quiz = [
+      { emoji: "🍼👶", answer: "baby bottle" },
+      { emoji: "👶🛁", answer: "baby shower" },
+      { emoji: "👣👣", answer: "baby steps" },
+      { emoji: "👶📸", answer: "baby photo" },
+      { emoji: "💤👶", answer: "sleeping baby" }
+    ];
 
-      function loadQuestion() {
-        
-          questionEl.textContent = "Quiz Complete! 🎉";
-          answerInput.style.display = "none";
-          document.querySelector("button").style.display = "none";
-          resultEl.textContent = `Final Score: ${score}/${quiz.length}`;
-        }
-      
+    let current = 0;
+    let score = 0;
 
-      function checkAnswer() {
-        const userAnswer = answerInput.value.trim().toLowerCase();
-        const correctAnswer = quiz[current].answer.toLowerCase();
-        if (userAnswer === correctAnswer) {
-          resultEl.textContent = "✅ Correct!";
-          score++;
-        } else {
-          resultEl.textContent = `❌ Oops! It was: ${quiz[current].answer}`;
-        }
-        current++;
-        setTimeout(loadQuestion, 1000);
+    const questionEl = document.getElementById("question");
+    const answerInput = document.getElementById("answerInput");
+    const feedbackEl = document.getElementById("feedback");
+    const resultBox = document.getElementById("resultBox");
+    const finalScoreEl = document.getElementById("final-score");
+    const gameContainer = document.getElementById("game");
+
+    function loadQuestion() {
+      if (current < quiz.length) {
+        questionEl.textContent = quiz[current].emoji;
+        answerInput.value = "";
+        feedbackEl.textContent = "";
+      } else {
+        showResult();
+      }
+    }
+
+    function checkAnswer() {
+      const userAnswer = answerInput.value.trim().toLowerCase();
+      const correctAnswer = quiz[current].answer.toLowerCase();
+
+      if (userAnswer === correctAnswer) {
+        feedbackEl.textContent = "✅ Correct!";
+        score++;
+      } else {
+        feedbackEl.textContent = `❌ It was: ${quiz[current].answer}`;
       }
 
+      current++;
+      setTimeout(loadQuestion, 1000);
+    }
+
+    function showResult() {
+      gameContainer.style.display = "none";
+      resultBox.style.display = "block";
+      finalScoreEl.textContent = score;
+    }
+
+    function restartGame() {
+      current = 0;
+      score = 0;
+      gameContainer.style.display = "block";
+      resultBox.style.display = "none";
       loadQuestion();
-    </script>
-  </body>
+    }
+
+    function goHome() {
+      window.location.href = "index.html";
+    }
+
+    loadQuestion();
+  </script>
+</body>
 </html>
