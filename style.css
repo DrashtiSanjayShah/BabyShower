@@ -164,3 +164,51 @@ button {
   padding: 1rem;
 }
 
+/* 🔧 Scrollbar inside main-container */
+.main-container {
+  position: relative;
+  overflow-y: scroll;
+  scrollbar-width: auto;
+  scrollbar-color: #c78cbf #ffe4ec;
+}
+
+/* 🌐 For WebKit browsers */
+.main-container::-webkit-scrollbar {
+  width: 24px;
+  background-color: #ffe4ec;
+}
+
+/* 🔼🔽 Arrows */
+.main-container::-webkit-scrollbar-button {
+  height: 16px;
+  width: 24px;
+  background-color: #c78cbf;
+  border: 2px solid orange;
+  display: block;
+}
+
+/* 🌟 Scrollbar Thumb – always visible & sharp */
+.main-container::-webkit-scrollbar-thumb {
+  background-color: #c78cbf;
+  border: 2px solid #4b004b;
+  border-radius: 0;
+  box-shadow: none;
+  opacity: 1; /* 🔥 Make sure it's always fully visible */
+}
+
+/* Background track */
+.main-container::-webkit-scrollbar-track {
+  background: linear-gradient(
+    to bottom,      /* Top color */
+    red 70%,      /* 70% baby pink */
+    #ffd6cc 70%,      /* Switch at 70% to second color */
+    #ffd6cc 100%      /* Bottom 30% peachy */
+  );
+  border-left: 2px solid #4b004b;
+}
+
+
+/* Corner */
+.main-container::-webkit-scrollbar-corner {
+  background-color: #ffe4ec;
+}
