@@ -10,7 +10,7 @@
   --color-text-primary: #4b004b;
   --color-input-border: #f6c7f7;
   --color-input-text: #f7ccc6;
-
+--color-font:#d289e4 ;
 
   --panel-left-width: 20%;
   --panel-right-width: 70%;
@@ -30,12 +30,13 @@
 }
 
 body {
-
+  /* font-family: 'Indie Flower', cursive; */
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
+
 
 .main-container {
   width: calc(100vw - 45rem);
@@ -59,8 +60,8 @@ body {
   width: var(--panel-left-width);
   background-color: var(--color-panel-bg);
   border-right: 2px solid var(--color-placeholder);
-  margin-top: 1.5rem;
   margin-left: 1rem;
+  margin-top: 1rem;
 }
 
 .left-panel a {
@@ -108,9 +109,10 @@ body {
 }
 
 .nav-label {
+  text-transform: uppercase;
   margin-top: 0.5em;
   font-family: 'Indie Flower', cursive;
-  font-size: 1.5em;
+  font-size: 1.25em;
   color: var(--color-placeholder);
   text-align: center;
   width: 80%;
@@ -131,7 +133,7 @@ body {
 
 .main-image {
   width: 1000rem;
-  height: 32rem;
+  height: 30rem;
   object-fit: contain;
   display: block;
 }
@@ -176,6 +178,7 @@ button {
 }
 
 .bottom-section {
+  display: flex;
   height: 15%;
   background-color: var(--color-panel-bg);
   text-align: center;
@@ -184,47 +187,81 @@ button {
   padding: 1rem;
 }
 
+.bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.bottom-left {
+  width: auto;
+  display: flex;
+  align-items: center;
+}
+
+.bottom-icon {
+  margin-left: -1rem;
+  width: 6rem;
+  object-fit: contain;
+  transition: transform var(--transition-speed) ease;
+  cursor: pointer;
+}
+
+.bottom-icon:hover {
+  transform: scale(1.5);
+}
+
+.bottom-right .color-picker {
+  display: flex;
+  flex-direction: row; /* ensure it's a row */
+  flex-wrap: wrap; /* allows wrapping if space is less */
+  /* padding: 0.5rem; */
+}
+
+.color-swatch {
+  width: 2.4rem;
+  height: 2.4rem;
+  border: 2px solid var(--color-input-border);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+  /* background-color: transparent;  */
+}
+
+.color-swatch:hover {
+  transform: scale(1.15);
+}
+
 /* 🔧 Scrollbar inside main-container */
 .main-container {
   position: relative;
   overflow-y: scroll;
-  scrollbar-width: auto;
-  scrollbar-color: #c78cbf #ffe4ec;
 }
 
 /* 🌐 For WebKit browsers */
 .main-container::-webkit-scrollbar {
   width: 24px;
-  background-color: #ffe4ec;
 }
 
 /* 🔼🔽 Arrows */
 .main-container::-webkit-scrollbar-button {
   height: 16px;
   width: 24px;
-  background-color: #c78cbf;
-  border: 2px solid var(--color-input-border);
+  background-color: var(--color-input-border);
+  border: 2px solid var(--color-placeholder);
   display: block;
-}
-
-/* 🌟 Scrollbar Thumb – always visible & sharp */
-.main-container::-webkit-scrollbar-thumb {
-  background-color: #c78cbf;
-  border: 2px solid #4b004b;
-  border-radius: 0;
-  box-shadow: none;
-  opacity: 1; /* 🔥 Make sure it's always fully visible */
 }
 
 /* Background track */
 .main-container::-webkit-scrollbar-track {
   background: linear-gradient(
     to bottom,      /* Top color */
-    var(--color-input-border) 70%,      /* 70% baby pink */
-    var(--color-panel-bg) 70%,      /* Switch at 70% to second color */
-    var(--color-panel-bg) 100%      /* Bottom 30% peachy */
+    var(--color-input-border) 70%,      
+    var(--color-panel-bg) 70%,      
+    var(--color-panel-bg) 100%     
   );
-  border-left: 2px solid #4b004b;
+  border-left: 2px solid var(--color-placeholder); 
 }
 
 
