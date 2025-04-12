@@ -2,7 +2,6 @@
   --color-bg: #ffe4ec;
   --color-panel-bg: #F9DCFA;
   --color-border: #eccbed;
-  --color-highlight: red;
   --color-button: #F6D9D5;
   --color-panel-right-bg: #e0def5;
   --color-gradient-start: #ffd6e8;
@@ -13,17 +12,15 @@
   --color-input-text: #f7ccc6;
 
 
-  --font-main: 'Comic Sans MS', cursive, sans-serif;
-
-
   --panel-left-width: 20%;
   --panel-right-width: 70%;
-  --icon-width: 9rem;
-  --icon-height: 16rem;
+  --icon-width: 6rem;
+  --icon-height: 13rem;
 
 
   --transition-speed: 0.2s;
   --hover-scale: 0.5;
+  --text-hover-scale: 1;
 }
 
 * {
@@ -33,9 +30,7 @@
 }
 
 body {
-  background-color: var(--color-bg);
-  font-family: var(--font-main);
-  color: var(--color-text-primary);
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -65,6 +60,7 @@ body {
   background-color: var(--color-panel-bg);
   border-right: 2px solid var(--color-placeholder);
   margin-top: 1.5rem;
+  margin-left: 1rem;
 }
 
 .left-panel a {
@@ -91,10 +87,34 @@ body {
 }
 
 #photos, #invitation {
-  width: 12rem;
-  height: 16rem;
+  width: 8rem;
+  height: 14rem;
   margin-left: -1rem;
-  padding-top: 3rem;
+  padding-top: 2rem;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+}
+
+.nav-link:hover .left-icon,
+.nav-link:hover .nav-label {
+  transform: scale(var(--hover-scale));
+  transition: transform var(--transition-speed) ease;
+  cursor: pointer;
+}
+
+.nav-label {
+  margin-top: 0.5em;
+  font-family: 'Indie Flower', cursive;
+  font-size: 1.5em;
+  color: var(--color-placeholder);
+  text-align: center;
+  width: 80%;
+  transition: transform var(--transition-speed) ease;
 }
 
 .right-panel {
@@ -183,7 +203,7 @@ button {
   height: 16px;
   width: 24px;
   background-color: #c78cbf;
-  border: 2px solid orange;
+  border: 2px solid var(--color-input-border);
   display: block;
 }
 
@@ -200,9 +220,9 @@ button {
 .main-container::-webkit-scrollbar-track {
   background: linear-gradient(
     to bottom,      /* Top color */
-    red 70%,      /* 70% baby pink */
-    #ffd6cc 70%,      /* Switch at 70% to second color */
-    #ffd6cc 100%      /* Bottom 30% peachy */
+    var(--color-input-border) 70%,      /* 70% baby pink */
+    var(--color-panel-bg) 70%,      /* Switch at 70% to second color */
+    var(--color-panel-bg) 100%      /* Bottom 30% peachy */
   );
   border-left: 2px solid #4b004b;
 }
