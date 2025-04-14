@@ -12,142 +12,220 @@
       rel="stylesheet"
     />
   </head>
-<body>
-  <div class="main-container">
-    <div class="top-section">
-      <div class="left-panel">
-        <div class="nav-item">
-          <a href="index.html" class="nav-link">
-            <img
-              src="images/about.png"
-              alt="Page 1"
-              class="left-icon"
-              id="about"
-            />
-            <div class="nav-label">Us</div>
-          </a>
+  <body>
+    <div class="main-container">
+      <div class="top-section">
+        <div class="left-panel">
+          <div class="nav-item">
+            <a href="index.html" class="nav-link">
+              <img
+                src="images/about.png"
+                alt="Page 1"
+                class="left-icon"
+                id="about"
+              />
+              <div class="nav-label">Us</div>
+            </a>
+          </div>
+
+          <div class="nav-item">
+            <a href="games.html" class="nav-link">
+              <img
+                src="images/games.png"
+                alt="Page 2"
+                class="left-icon"
+                id="games"
+              />
+              <div class="nav-label">Games</div>
+            </a>
+          </div>
+
+          <div class="nav-item">
+            <a href="invitation.html" class="nav-link">
+              <img
+                src="images/invite.png"
+                alt="Page 3"
+                class="left-icon"
+                id="invitation"
+              />
+              <div class="nav-label">Invitation</div>
+            </a>
+          </div>
+
+          <div class="nav-item">
+            <a href="photos.html" class="nav-link">
+              <img
+                src="images/photos.png"
+                alt="Page 4"
+                class="left-icon"
+                id="photos"
+              />
+
+              <div class="nav-label">Photos</div>
+            </a>
+          </div>
         </div>
 
-        <div class="nav-item">
-          <a href="games.html" class="nav-link">
-            <img
-              src="images/games.png"
-              alt="Page 2"
-              class="left-icon"
-              id="games"
+        <div class="right-panel">
+          <div class="quiz-container" id="game">
+            <div class="emoji-question" id="question"></div>
+            <input
+              type="text"
+              id="answerInput"
+              placeholder="Type your answer..."
             />
-            <div class="nav-label">Games</div>
-          </a>
-        </div>
+            <button onclick="checkAnswer()">Submit</button>
+            <div class="feedback" id="feedback"></div>
+          </div>
 
-        <div class="nav-item">
-          <a href="invitation.html" class="nav-link">
-            <img
-              src="images/invite.png"
-              alt="Page 3"
-              class="left-icon"
-              id="invitation"
-            />
-            <div class="nav-label">Invitation</div>
-          </a>
-        </div>
-
-        <div class="nav-item">
-          <a href="photos.html" class="nav-link">
-            <img
-              src="images/photos.png"
-              alt="Page 4"
-              class="left-icon"
-              id="photos"
-            />
-          
-          <div class="nav-label">Photos</div>
-        </a>
+          <div id="resultBox" style="display: none">
+            <h3>Your Score: <span id="final-score"></span>/5</h3>
+            <button onclick="restartGame()">Try Again</button>
+            <button onclick="goHome()">→</button>
+          </div>
         </div>
       </div>
 
-      <div class="right-panel">
-        <div class="quiz-container" id="game">
-          <div class="emoji-question" id="question"></div>
-          <input type="text" id="answerInput" placeholder="Type your answer..." />
-          <button onclick="checkAnswer()">Submit</button>
-          <div class="feedback" id="feedback"></div>
-        </div>
-
-        <div id="resultBox" style="display: none;">
-          <h3>Your Score: <span id="final-score"></span>/5</h3>
-          <button onclick="restartGame()">Try Again</button>
-          <button onclick="goHome()">→</button>
+      <div class="bottom-section">
+        <div class="bottom-content">
+          <div class="bottom-left">
+            <a
+              href="https://forms.office.com/r/HLgDbQ54sD"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="images/form.png"
+                alt="Bottom Icon"
+                class="bottom-icon"
+              />
+            </a>
+            <div class="color-picker">
+              <div
+                class="color-swatch"
+                style="background-color: #ffe4ec"
+                data-color="#ffe4ec"
+              ></div>
+              <div
+                class="color-swatch"
+                style="background-color: #f9dcfa"
+                data-color="#f9dcfa"
+              ></div>
+              <div
+                class="color-swatch"
+                style="background-color: #d6ebff"
+                data-color="#d289e4"
+              ></div>
+              <div
+                class="color-swatch"
+                style="background-color: #ffb8d4"
+                data-color="#c78cbf"
+              ></div>
+              <div
+                class="color-swatch"
+                style="background-color: #ffd6e8"
+                data-color="#ffd6e8"
+              ></div>
+              <div
+                class="color-swatch"
+                style="background-color: #fff0f5"
+                data-color="#fff0f5"
+              ></div>
+              <div class="color-swatch"></div>
+              <div class="color-swatch"></div>
+              <div class="color-swatch"></div>
+              <div class="color-swatch"></div>
+            </div>
+          </div>
+          <div class="bottom-right"></div>
         </div>
       </div>
+
+      <div class="custom-scrollbar">
+        <div class="custom-thumb"></div>
+      </div>
+      
+      <script>
+        // Color Swatches functionality
+        const colorSwatches = document.querySelectorAll(".color-swatch");
+        const elementsToColor = document.querySelectorAll(
+          ".main-container, .left-panel, .bottom-section"
+        );
+
+        colorSwatches.forEach((swatch) => {
+          swatch.addEventListener("click", () => {
+            const selectedColor = swatch.style.backgroundColor;
+
+            elementsToColor.forEach((element) => {
+              element.style.backgroundColor = selectedColor;
+            });
+          });
+        });
+
+        // Quiz functionality
+        const quiz = [
+          { emoji: "🍼👶", answer: "baby bottle" },
+          { emoji: "👶🛁", answer: "baby shower" },
+          { emoji: "👣👣", answer: "baby steps" },
+          { emoji: "👶📸", answer: "baby photo" },
+          { emoji: "💤👶", answer: "sleeping baby" },
+        ];
+
+        let current = 0;
+        let score = 0;
+
+        const questionEl = document.getElementById("question");
+        const answerInput = document.getElementById("answerInput");
+        const feedbackEl = document.getElementById("feedback");
+        const resultBox = document.getElementById("resultBox");
+        const finalScoreEl = document.getElementById("final-score");
+        const gameContainer = document.getElementById("game");
+
+        function loadQuestion() {
+          if (current < quiz.length) {
+            questionEl.textContent = quiz[current].emoji;
+            answerInput.value = "";
+            feedbackEl.textContent = "";
+          } else {
+            showResult();
+          }
+        }
+
+        function checkAnswer() {
+          const userAnswer = answerInput.value.trim().toLowerCase();
+          const correctAnswer = quiz[current].answer.toLowerCase();
+
+          if (userAnswer === correctAnswer) {
+            feedbackEl.textContent = "✅ Correct!";
+            score++;
+          } else {
+            feedbackEl.textContent = `❌ It was: ${quiz[current].answer}`;
+          }
+
+          current++;
+          setTimeout(loadQuestion, 1000);
+        }
+
+        function showResult() {
+          gameContainer.style.display = "none";
+          resultBox.style.display = "block";
+          finalScoreEl.textContent = score;
+        }
+
+        function restartGame() {
+          current = 0;
+          score = 0;
+          gameContainer.style.display = "block";
+          resultBox.style.display = "none";
+          loadQuestion();
+        }
+
+        function goHome() {
+          window.location.href = "index.html";
+        }
+
+        loadQuestion();
+      </script>
     </div>
-
-    <div class="bottom-section">Bottom Section</div>
-  </div>
-
-  <script>
-    const quiz = [
-      { emoji: "🍼👶", answer: "baby bottle" },
-      { emoji: "👶🛁", answer: "baby shower" },
-      { emoji: "👣👣", answer: "baby steps" },
-      { emoji: "👶📸", answer: "baby photo" },
-      { emoji: "💤👶", answer: "sleeping baby" }
-    ];
-
-    let current = 0;
-    let score = 0;
-
-    const questionEl = document.getElementById("question");
-    const answerInput = document.getElementById("answerInput");
-    const feedbackEl = document.getElementById("feedback");
-    const resultBox = document.getElementById("resultBox");
-    const finalScoreEl = document.getElementById("final-score");
-    const gameContainer = document.getElementById("game");
-
-    function loadQuestion() {
-      if (current < quiz.length) {
-        questionEl.textContent = quiz[current].emoji;
-        answerInput.value = "";
-        feedbackEl.textContent = "";
-      } else {
-        showResult();
-      }
-    }
-
-    function checkAnswer() {
-      const userAnswer = answerInput.value.trim().toLowerCase();
-      const correctAnswer = quiz[current].answer.toLowerCase();
-
-      if (userAnswer === correctAnswer) {
-        feedbackEl.textContent = "✅ Correct!";
-        score++;
-      } else {
-        feedbackEl.textContent = `❌ It was: ${quiz[current].answer}`;
-      }
-
-      current++;
-      setTimeout(loadQuestion, 1000);
-    }
-
-    function showResult() {
-      gameContainer.style.display = "none";
-      resultBox.style.display = "block";
-      finalScoreEl.textContent = score;
-    }
-
-    function restartGame() {
-      current = 0;
-      score = 0;
-      gameContainer.style.display = "block";
-      resultBox.style.display = "none";
-      loadQuestion();
-    }
-
-    function goHome() {
-      window.location.href = "index.html";
-    }
-
-    loadQuestion();
-  </script>
-</body>
+  </body>
 </html>

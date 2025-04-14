@@ -40,7 +40,7 @@ body {
 
 .main-container {
   width: calc(100vw - 45rem);
-  height: calc(100vh - 5rem);
+  height: calc(100vh - 7rem);
   margin: 0 20rem 1rem 20rem;
   display: flex;
   flex-direction: column;
@@ -179,7 +179,7 @@ button {
 
 .bottom-section {
   display: flex;
-  height: 15%;
+  height: 8%;
   background-color: var(--color-panel-bg);
   text-align: center;
   font-weight: bold;
@@ -195,14 +195,13 @@ button {
 }
 
 .bottom-left {
-  width: auto;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .bottom-icon {
   margin-left: -1rem;
-  width: 6rem;
+  width: 7rem;
   object-fit: contain;
   transition: transform var(--transition-speed) ease;
   cursor: pointer;
@@ -212,21 +211,31 @@ button {
   transform: scale(1.5);
 }
 
+.color-picker {
+  display: flex;
+  margin: 2.8rem;
+  margin-left: 2rem;
+}
+
+.bottom-right{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  width: 100%;
+}
+
 .bottom-right .color-picker {
   display: flex;
-  flex-direction: row; /* ensure it's a row */
-  flex-wrap: wrap; /* allows wrapping if space is less */
-  /* padding: 0.5rem; */
-}
+  flex-direction: row;
+  }
 
 .color-swatch {
   width: 2.4rem;
   height: 2.4rem;
-  border: 2px solid var(--color-input-border);
+  border: 2px solid var(--color-border);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
   cursor: pointer;
   transition: transform 0.2s ease;
-  /* background-color: transparent;  */
 }
 
 .color-swatch:hover {
