@@ -1,8 +1,8 @@
 :root {
   --color-bg: #ffe4ec;
-  --color-panel-bg: #F9DCFA;
+  --color-panel-bg: #f9dcfa;
   --color-border: #eccbed;
-  --color-button: #F6D9D5;
+  --color-button: #f6d9d5;
   --color-panel-right-bg: #e0def5;
   --color-gradient-start: #ffd6e8;
   --color-gradient-end: #fff0f5;
@@ -10,13 +10,12 @@
   --color-text-primary: #4b004b;
   --color-input-border: #f6c7f7;
   --color-input-text: #f7ccc6;
---color-font:#d289e4 ;
+  --color-font: #d289e4;
 
   --panel-left-width: 20%;
   --panel-right-width: 70%;
   --icon-width: 6rem;
   --icon-height: 13rem;
-
 
   --transition-speed: 0.2s;
   --hover-scale: 0.5;
@@ -36,7 +35,6 @@ body {
   align-items: center;
   height: 100vh;
 }
-
 
 .main-container {
   width: calc(100vw - 50rem);
@@ -60,7 +58,6 @@ body {
 .left-panel {
   width: var(--panel-left-width);
   background-color: var(--color-panel-bg);
-  margin-left: 1rem;
   margin-top: 1rem;
   margin-right: -2rem;
 }
@@ -88,7 +85,8 @@ body {
   margin-top: -3rem;
 }
 
-#photos, #invitation {
+#photos,
+#invitation {
   width: 8rem;
   height: 14rem;
   margin-left: -1rem;
@@ -112,7 +110,7 @@ body {
 .nav-label {
   text-transform: uppercase;
   margin-top: 0.5em;
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   font-size: 1.25em;
   color: var(--color-placeholder);
   text-align: center;
@@ -140,17 +138,82 @@ body {
 }
 
 .quiz-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  max-width: 500px;
-  width: 100%;
+  gap: 1rem;
+}
+
+.quiz-container input[type="text"] {
+  padding: 0.5rem;
+  border: 2px solid var(--color-input-border);
+  border-radius: 8px;
+  width: 70%;
+  max-width: 400px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.quiz-container button {
+  padding: 0.6rem 1.2rem;
+  color: var(--color-placeholder);
+  background-color: var(--color-button);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: transform 0.2s ease;
+  font-family: "Indie Flower", cursive;
+}
+
+.quiz-container button:hover {
+  transform: scale(1.05);
+}
+
+#resultBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  text-align: center;
+  font-family: "Indie Flower", cursive;
+}
+
+#resultBox button {
+  padding: 0.6rem 1.2rem;
+  background-color: var(--color-button);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+  font-family: "Indie Flower", cursive;
+}
+
+#resultBox button:hover {
+  transform: scale(1.05);
+}
+
+.quiz-image {
+  width: 24rem;
+  height: 24rem;
+  object-fit: contain;
+  margin-top: -3rem;
+  margin-bottom: -12rem;
+  align-items: center;
+  margin-left: 1rem;
 }
 
 .emoji-question {
-  font-size: 4rem;
-  margin-bottom: 15px;
+  font-size: 2rem;
+  width: 24rem;
+  margin-bottom: 8px;
 }
 
 input[type="text"] {
+  font-family: "Indie Flower", cursive;
   padding: 10px;
   font-size: 1rem;
   width: 100%;
@@ -162,20 +225,13 @@ input[type="text"] {
 ::placeholder {
   color: var(--color-placeholder);
   text-transform: uppercase;
-}
-
-button {
-  padding: 10px 20px;
-  font-size: 1rem;
-  background-color: var(--color-button);
-  color: #333;
-  border: none;
-  cursor: pointer;
+  font-family: "Indie Flower", cursive;
 }
 
 .result {
   font-weight: bold;
   margin-top: 10px;
+  font-family: "Indie Flower", cursive;
 }
 
 .bottom-section {
@@ -219,7 +275,7 @@ button {
   margin-left: 2rem;
 }
 
-.bottom-right{
+.bottom-right {
   display: flex;
   justify-content: flex-end;
   align-items: flex-start;
@@ -229,7 +285,7 @@ button {
 .bottom-right .color-picker {
   display: flex;
   flex-direction: row;
-  }
+}
 
 .color-swatch {
   width: 2.4rem;
@@ -253,7 +309,6 @@ button {
 /* 🌐 For WebKit browsers */
 .main-container::-webkit-scrollbar {
   width: 24px;
-
 }
 
 /* 🔼🔽 Arrows */
@@ -266,14 +321,13 @@ button {
 /* Background track */
 .main-container::-webkit-scrollbar-track {
   background: linear-gradient(
-    to bottom,      /* Top color */
-    var(--color-input-border) 70%,      
-    var(--color-panel-bg) 70%,      
-    var(--color-panel-bg) 100%     
+    to bottom,
+    /* Top color */ var(--color-input-border) 70%,
+    var(--color-panel-bg) 70%,
+    var(--color-panel-bg) 100%
   );
-  border-left: 2px solid var(--color-placeholder); 
+  border-left: 2px solid var(--color-placeholder);
 }
-
 
 /* Corner */
 .main-container::-webkit-scrollbar-corner {

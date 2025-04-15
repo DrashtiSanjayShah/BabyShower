@@ -164,11 +164,31 @@
 
         // Quiz functionality
         const quiz = [
-          { emoji: "🍼👶", answer: "baby bottle" },
-          { emoji: "👶🛁", answer: "baby shower" },
-          { emoji: "👣👣", answer: "baby steps" },
-          { emoji: "👶📸", answer: "baby photo" },
-          { emoji: "💤👶", answer: "sleeping baby" },
+          {
+            emoji:
+              '<img src="images/baby-bottle.png" class="quiz-image" alt="baby bottle" />',
+            answer: "baby bottle",
+          },
+          {
+            emoji:
+              '<img src="images/baby-shower.png" class="quiz-image" alt="baby shower" />',
+            answer: "baby shower",
+          },
+          {
+            emoji:
+              '<img src="images/baby-steps.png" class="quiz-image" alt="baby steps" />',
+            answer: "baby steps",
+          },
+          {
+            emoji:
+              '<img src="images/photo.png" class="quiz-image" alt="baby photo" />',
+            answer: "baby photo",
+          },
+          {
+            emoji:
+              '<img src="images/baby-food.png" class="quiz-image" alt="sleeping baby" />',
+            answer: "baby food",
+          },
         ];
 
         let current = 0;
@@ -183,7 +203,7 @@
 
         function loadQuestion() {
           if (current < quiz.length) {
-            questionEl.textContent = quiz[current].emoji;
+            questionEl.innerHTML = quiz[current].emoji; // changed from textContent to innerHTML
             answerInput.value = "";
             feedbackEl.textContent = "";
           } else {
