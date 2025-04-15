@@ -39,7 +39,7 @@ body {
 
 
 .main-container {
-  width: calc(100vw - 45rem);
+  width: calc(100vw - 50rem);
   height: calc(100vh - 7rem);
   margin: 0 20rem 1rem 20rem;
   display: flex;
@@ -54,14 +54,15 @@ body {
   display: flex;
   flex: 1;
   min-height: 0;
+  margin-right: -4rem;
 }
 
 .left-panel {
   width: var(--panel-left-width);
   background-color: var(--color-panel-bg);
-  border-right: 2px solid var(--color-placeholder);
   margin-left: 1rem;
   margin-top: 1rem;
+  margin-right: -2rem;
 }
 
 .left-panel a {
@@ -179,7 +180,7 @@ button {
 
 .bottom-section {
   display: flex;
-  height: 8%;
+  height: 4%;
   background-color: var(--color-panel-bg);
   text-align: center;
   font-weight: bold;
@@ -201,19 +202,20 @@ button {
 
 .bottom-icon {
   margin-left: -1rem;
-  width: 7rem;
+  margin-top: 1rem;
+  width: 6rem;
   object-fit: contain;
   transition: transform var(--transition-speed) ease;
   cursor: pointer;
 }
 
 .bottom-icon:hover {
-  transform: scale(1.5);
+  transform: scale(0.5);
 }
 
 .color-picker {
   display: flex;
-  margin: 2.8rem;
+  margin: 3.2rem;
   margin-left: 2rem;
 }
 
@@ -251,12 +253,11 @@ button {
 /* 🌐 For WebKit browsers */
 .main-container::-webkit-scrollbar {
   width: 24px;
+
 }
 
 /* 🔼🔽 Arrows */
 .main-container::-webkit-scrollbar-button {
-  height: 16px;
-  width: 24px;
   background-color: var(--color-input-border);
   border: 2px solid var(--color-placeholder);
   display: block;
