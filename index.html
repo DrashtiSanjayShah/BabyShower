@@ -13,7 +13,7 @@
     />
   </head>
   <body>
-    <div class="main-container">
+    <div class="main-container" id="main-container">
       <div class="top-section">
         <div class="left-panel">
           <div class="nav-item">
@@ -98,16 +98,49 @@
     <div class="custom-scrollbar">
       <div class="custom-thumb"></div>
     </div>
+    <div id="desktop-warning" style="display: none;">
+      <div class="header">
+        <span class="title">Notification</span>
+        <span class="close-btn" onclick="closeDesktopWarning()">✖</span>
+      </div>
+      <div class="message">
+        This looks great on desktop. Open the link on your laptop.
+      </div>
+    </div>
+    
+       
     <script>
-      const colorSwatches = document.querySelectorAll('.color-swatch');
-      const elementsToColor = document.querySelectorAll('.main-container, .left-panel, .bottom-section');
-    
-      colorSwatches.forEach(swatch => {
-        swatch.addEventListener('click', () => {
-          const selectedColor = swatch.style.backgroundColor;
-    
-          elementsToColor.forEach(element => {
-            element.style.backgroundColor = selectedColor;
+      function isMobile() {
+        return window.innerWidth <= 768;
+      }
+
+      function closeDesktopWarning() {
+        document.getElementById('desktop-warning').style.display = 'none';
+        const main = document.getElementById('main-container');
+        main.style.display = 'block';
+        setTimeout(() => {
+          main.style.opacity = 1;
+        }, 10);
+      }
+
+      window.addEventListener('load', () => {
+        const warning = document.getElementById('desktop-warning');
+        const main = document.getElementById('main-container');
+
+      })
+
+      // color changing logic
+      window.addEventListener('DOMContentLoaded', () => {
+        const colorSwatches = document.querySelectorAll('.color-swatch');
+        const elementsToColor = document.querySelectorAll('.main-container, .left-panel, .bottom-section');
+
+        colorSwatches.forEach(swatch => {
+          swatch.addEventListener('click', () => {
+            const selectedColor = swatch.style.backgroundColor;
+
+            elementsToColor.forEach(element => {
+              element.style.backgroundColor = selectedColor;
+            });
           });
         });
       });
