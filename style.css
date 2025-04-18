@@ -336,9 +336,10 @@ input[type="text"] {
 
 /* General responsive tweaks */
 
-
-
 @media screen and (min-width: 360px) and (max-width: 1024px){
+  body{
+    margin-top: -2rem;
+  }
   .main-container {
     width: 90vw;
     height: 80vh;
